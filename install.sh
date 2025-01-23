@@ -49,7 +49,30 @@ install_dotfiles() {
 
 	echo -e "\n\n##### Caching X11 fonts #####"
 	fc-cache -fv ~/.local/share/fonts
+
+	mkdir -p /usr/share/xsessions/
+	cp ./dotfiles/global/qtile.desktop /usr/share/xsessions/qtile.desktop
 }
 
-install_dotfiles
+install_sddm_theme() {
+	echo -e "\n\n##### Installing SDDM theme #####"
+	
+	set -x
+	cp ./dotfiles/global/sddm.conf /etc/sddm.conf
+	mkdir -p /usr/share/sddm/themes
+	rm -rf /usr/share/sddm/themes/sugar-dark
+	cp -r ./dotfiles/global/sddm-sugar-dark-1.2 /usr/share/sddm/themes/sugar-dark
+	dpkg-reconfigure sddm
+	
+	set +x
+}
+
+install_grub_theme() {
+	echo -e "\n\n##### Installing GRUB theme #####"
+	./dotfiles/global/left-dark-1080p/install.sh
+}
+
 #install_dependencies
+#install_dotfiles
+install_sddm_theme
+install_grub_theme
