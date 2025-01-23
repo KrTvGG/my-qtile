@@ -69,10 +69,14 @@ install_sddm_theme() {
 
 install_grub_theme() {
 	echo -e "\n\n##### Installing GRUB theme #####"
-	./dotfiles/global/left-dark-1080p/install.sh
+	
+	cd ./dotfiles/global/Elegant-wave-float-grub-themes/left-dark-1080p
+	./install.sh
+	cd -
 }
 
 #install_dependencies
 #install_dotfiles
-install_sddm_theme
-install_grub_theme
+#install_sddm_theme
+#install_grub_theme
+
