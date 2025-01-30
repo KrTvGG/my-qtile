@@ -2,7 +2,7 @@
 
 install_dependencies() {
 	QTILE_DEPENDENCIES="xserver-xorg xinit xterm libpangocairo-1.0-0 python3-pip python3-xcffib python3-cairocffi imagemagick pipx dbus-x11 xdg-desktop-portal xdg-desktop-portal-gtk sddm"
-	UTILS="kitty rofi feh flatpak btop dunst curl"
+	UTILS="kitty polybar rofi feh flatpak btop dunst curl"
 	FLATPAK_APPS="ru.yandex.Browser"
 
 	echo -e "\n\n##### Updating the system #####"
@@ -75,8 +75,14 @@ install_grub_theme() {
 	cd -
 }
 
+install_plymouth_theme() {
+	echo -e "\n\n##### Installing plymouth theme ($1) #####"	
+	cp -r ./dotfiles/global/plymouth-themes/* /usr/share/plymouth/themes/
+	
+	plymouth-set-default-theme -R $1
+}
 #install_dependencies
 #install_dotfiles
 #install_sddm_theme
 #install_grub_theme
-
+install_plymouth_theme owl

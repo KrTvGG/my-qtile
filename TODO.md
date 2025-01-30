@@ -1,5 +1,4 @@
 # TODO
-- Add plymouth theme
 - Install VSCode
 - Add fonts
 - Configure Rofi
