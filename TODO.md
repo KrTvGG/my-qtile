@@ -1,9 +1,11 @@
 # TODO
+- Fix install_dotfiles sudo issue (it installs dotfiles for root if you run install.sh with sudo)
 - Install VSCode
 - Add fonts
 - Configure Rofi
 - Install and configured Polybar
 - Rise Qtile
 - Configure function keys
+- Polish boot splash screens
 - Theming (Terminal, GTK, QT)
 - Add animations

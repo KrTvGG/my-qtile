@@ -82,7 +82,7 @@ install_plymouth_theme() {
 	plymouth-set-default-theme -R $1
 }
 #install_dependencies
-#install_dotfiles
+install_dotfiles
 #install_sddm_theme
 #install_grub_theme
-install_plymouth_theme owl
+#install_plymouth_theme owl
