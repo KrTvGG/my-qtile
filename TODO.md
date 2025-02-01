@@ -1,7 +1,7 @@
 # TODO
 - Записать параметры смены раскладки в скрипт
+- VSCode установлен. Десктоп файл сделан. Нужно добавить в скрипт создание десктоп файла.
 - Fix install_dotfiles sudo issue (it installs dotfiles for root if you run install.sh with sudo)
-- Install VSCode
 - Add fonts
 - Configure Rofi
 - Install and configured Polybar
