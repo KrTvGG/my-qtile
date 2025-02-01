@@ -1,4 +1,5 @@
 # TODO
+- Записать параметры смены раскладки в скрипт
 - Fix install_dotfiles sudo issue (it installs dotfiles for root if you run install.sh with sudo)
 - Install VSCode
 - Add fonts
