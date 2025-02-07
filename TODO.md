@@ -1,11 +1,16 @@
 # TODO
+- Install NodeJS
+- Add sshfs support to Nemo
+- Разобраться, почему после открытия вксода с открытым яндексом, то браузер пропадает.
+- Configure function keys
+- Add widgets (poweroff/network/brightness/sound)
+- Записать параметры смены раскладки в скрипт
+- VSCode установлен. Десктоп файл сделан. Нужно добавить в скрипт создание десктоп файла.
 - Fix install_dotfiles sudo issue (it installs dotfiles for root if you run install.sh with sudo)
-- Install VSCode
 - Add fonts
 - Configure Rofi
 - Install and configured Polybar
 - Rise Qtile
-- Configure function keys
 - Polish boot splash screens
 - Theming (Terminal, GTK, QT)
 - Add animations

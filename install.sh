@@ -1,9 +1,8 @@
 #! /bin/bash
 
 install_dependencies() {
-	QTILE_DEPENDENCIES="xserver-xorg xinit xterm libpangocairo-1.0-0 python3-pip python3-xcffib python3-cairocffi imagemagick pipx dbus-x11 xdg-desktop-portal xdg-desktop-portal-gtk sddm"
-	UTILS="kitty polybar rofi feh flatpak btop dunst curl"
-	FLATPAK_APPS="ru.yandex.Browser"
+	QTILE_DEPENDENCIES="xserver-xorg xinit xterm libpangocairo-1.0-0 python3-pip python3-xcffib python3-cairocffi imagemagick pipx dbus-x11 xdg-desktop-portal xdg-desktop-portal-gtk sddm qml-module-qtquick-controls qml-module-qtquick-controls2 qml-module-qtquick-layouts qml-module-qtgraphicaleffects"
+	UTILS="kitty polybar rofi feh flatpak btop dunst curl nemo"
 
 	echo -e "\n\n##### Updating the system #####"
 	sudo apt update
@@ -14,10 +13,12 @@ install_dependencies() {
 
 	echo -e "\n\n##### Installing PIP packages #####"
 	pipx inject qtile pywal libcst
+}
 
+install_extra_apps() {
 	echo -e "\n\n##### Installing Flatpak packages #####"
 	flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-	flatpak install --assumeyes flathub ${FLATPAK_APPS}
+	flatpak install --assumeyes flathub ${@}
 }
 
 install_dotfiles() {
@@ -54,6 +55,16 @@ install_dotfiles() {
 	cp ./dotfiles/global/qtile.desktop /usr/share/xsessions/qtile.desktop
 }
 
+install_system_configs() {
+	echo -e "\n\n##### Installing global system configs #####"
+	set -x
+	
+	mkdir -p /etc/default
+	cp ./dotfiles/global/keyboard /etc/default/keyboard
+
+	set +x
+}
+
 install_sddm_theme() {
 	echo -e "\n\n##### Installing SDDM theme #####"
 	
@@ -81,8 +92,13 @@ install_plymouth_theme() {
 	
 	plymouth-set-default-theme -R $1
 }
+
+
+FLATPAK_APPS="ru.yandex.Browser com.visualstudio.code com.anydesk.Anydesk org.onlyoffice.desktopeditors org.videolan.VLC org.telegram.desktop com.getpostman.Postman org.qbittorrent.qBittorrent us.zoom.Zoom org.filezillaproject.Filezilla"
+
 #install_dependencies
-install_dotfiles
+#install_extra_apps $FLATPAK_APPS
+#install_dotfiles
 #install_sddm_theme
 #install_grub_theme
 #install_plymouth_theme owl
