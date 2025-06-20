@@ -43,6 +43,10 @@ install_dotfiles() {
 	rm -rf ~/.local/share/backgrounds
 	mkdir -p ~/.local/share/
 	cp -r ./dotfiles/.local/share/backgrounds ~/.local/share/
+
+	# Install rofi theme
+	rm -rf ~/.local/share/rofi
+	cp -r ./dotfiles/.local/share/rofi ~/.local/share/
 	
 	# Coping fonts
 	rm -rf ~/.local/share/fonts
@@ -101,7 +105,7 @@ install_plymouth_theme() {
 }
 
 
-FLATPAK_APPS="ru.yandex.Browser com.visualstudio.code com.anydesk.Anydesk org.onlyoffice.desktopeditors org.videolan.VLC org.telegram.desktop com.getpostman.Postman org.qbittorrent.qBittorrent us.zoom.Zoom org.filezillaproject.Filezilla"
+FLATPAK_APPS="ru.yandex.Browser com.visualstudio.code com.anydesk.Anydesk org.onlyoffice.desktopeditors org.videolan.VLC org.telegram.desktop rest.insomnia.Insomnia org.qbittorrent.qBittorrent org.filezillaproject.Filezilla org.mozilla.firefox org.gnome.Loupe"
 
 install_dependencies
 install_extra_apps $FLATPAK_APPS
