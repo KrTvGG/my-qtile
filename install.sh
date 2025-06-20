@@ -7,7 +7,7 @@ install_dependencies() {
 
 	echo -e "\n\n##### Updating the system #####"
 	sudo apt update
-	sudo apt upgrade
+	sudo apt upgrade -y
 	
 	echo -e "\n\n##### Installing APT packages #####"
 	sudo apt install -y ${INSTALLATION_DEPENDENCIES} ${QTILE_DEPENDENCIES} ${UTILS}
@@ -32,6 +32,7 @@ install_dotfiles() {
 	
 	# Coping dotfiles
 	cp ./dotfiles/.bashrc ./dotfiles/.xinitrc ./dotfiles/.Xresources ~/
+	mkdir -p ~/.local/bin/
 	cp ./dotfiles/.local/bin/* ~/.local/bin/
 	
 	# Coping qtile config
@@ -40,6 +41,7 @@ install_dotfiles() {
 	
 	# Coping backgrounds
 	rm -rf ~/.local/share/backgrounds
+	mkdir -p ~/.local/share/
 	cp -r ./dotfiles/.local/share/backgrounds ~/.local/share/
 	
 	# Coping fonts
@@ -47,8 +49,8 @@ install_dotfiles() {
 	cp -r ./dotfiles/.local/share/fonts ~/.local/share/
 	
 	# Coping scripts
-	rm -rf ~/.local/share/fonts
-	cp -r ./dotfiles/.local/share/fonts ~/.local/share/
+	rm -rf ~/.local/share/scripts
+	cp -r ./dotfiles/.local/share/scripts ~/.local/share/
 	
 	set +x
 
