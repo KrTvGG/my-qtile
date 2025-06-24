@@ -1,6 +1,5 @@
 # TODO
 - Configure Rofi
-- Install NodeJS
 - Add fonts
 - Configure function keys
 - Add widgets (poweroff/network/brightness/sound)

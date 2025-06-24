@@ -3,7 +3,7 @@
 install_dependencies() {
 	INSTALLATION_DEPENDENCIES="sudo flatpak pipx"
 	QTILE_DEPENDENCIES="xserver-xorg xinit xterm libpangocairo-1.0-0 python3-pip python3-xcffib python3-cairocffi imagemagick dbus-x11 xdg-desktop-portal xdg-desktop-portal-gtk sddm qml-module-qtquick-controls qml-module-qtquick-controls2 qml-module-qtquick-layouts qml-module-qtgraphicaleffects"
-	UTILS="kitty polybar rofi feh btop dunst curl thunar"
+	UTILS="kitty polybar rofi flameshot feh btop dunst curl zip thunar"
 
 	echo -e "\n\n##### Updating the system #####"
 	sudo apt update
@@ -23,6 +23,14 @@ install_extra_apps() {
 	echo -e "\n\n##### Installing Flatpak packages #####"
 	flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 	flatpak install --assumeyes flathub ${@}
+	
+	echo -e "\n\n##### Installing NodeJS #####"
+	./scripts/install-nvm.sh
+	
+	export NVM_DIR="$HOME/.nvm"
+	[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+	
+	nvm install 24
 }
 
 install_dotfiles() {
@@ -98,6 +106,10 @@ install_grub_theme() {
 
 install_plymouth_theme() {
 	echo -e "\n\n##### Installing plymouth theme ($1) #####"
+
+	sudo sed -i 's/^GRUB_CMDLINE_LINUX_DEFAULT=.*/GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"/' /etc/default/grub
+	sudo update-grub
+	
 	sudo mkdir -p /usr/share/plymouth/themes/
 	sudo cp -r ./dotfiles/global/plymouth-themes/* /usr/share/plymouth/themes/
 	

@@ -28,4 +28,4 @@ if [ $# -ne 1 ]; then
 	duration=10
 fi
 
-plymouthd; plymouth --show-splash ; for ((I=0; I<$duration; I++)); do plymouth --update=test$I ; sleep 1; done; plymouth quit
+plymouthd; plymouth --show-splash --debug ; for ((I=0; I<$duration; I++)); do plymouth --update=test$I ; sleep 1; done; plymouth quit

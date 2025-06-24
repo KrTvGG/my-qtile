@@ -126,8 +126,8 @@ keys = [
         desc="rofi instantos pywal ",
     ),
     Key(
-        [mod, "shift"],
-        "d",
+        [mod],
+        "p",
         lazy.spawn("rofi -modi run,drun,window -lines 12 -padding 18 -width 60 -location 0 -show drun -sidebar-mode -columns 3"),
         desc="rofi pywal ",
     ),
@@ -140,14 +140,14 @@ keys = [
    Key(
         [],
         "Print",
-        lazy.spawn("scrot '%S.png' -e -d 5'mv $f $$(xdg-user-dir PICTURES)/Ubuntu-%S-$wx$h.png ; feh $$(xdg-user-dir PICTURES)/Ubuntu-%S-$wx$h.png'"),
+        lazy.spawn("flameshot gui"),
         desc="Print Screen",     
    ),
    Key(
         [mod],
         "w",
-        lazy.spawn("firefox"),
-        desc="launch firefox",
+        lazy.spawn("flatpak run ru.yandex.Browser"),
+        desc="launch Yandex",
   ),      
   Key(
         [mod],
