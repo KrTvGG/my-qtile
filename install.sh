@@ -2,7 +2,7 @@
 
 install_dependencies() {
 	INSTALLATION_DEPENDENCIES="sudo flatpak pipx"
-	QTILE_DEPENDENCIES="xserver-xorg xinit xterm libpangocairo-1.0-0 python3-pip python3-xcffib python3-cairocffi imagemagick dbus-x11 xdg-desktop-portal xdg-desktop-portal-gtk sddm qml-module-qtquick-controls qml-module-qtquick-controls2 qml-module-qtquick-layouts qml-module-qtgraphicaleffects"
+	QTILE_DEPENDENCIES="xserver-xorg xinit xterm libpangocairo-1.0-0 python3-pip python3-xcffib python3-cairocffi imagemagick dbus-x11 xdg-desktop-portal xdg-desktop-portal-gtk network-manager sddm qml-module-qtquick-controls qml-module-qtquick-controls2 qml-module-qtquick-layouts qml-module-qtgraphicaleffects"
 	UTILS="kitty polybar rofi flameshot feh btop dunst curl zip thunar"
 
 	echo -e "\n\n##### Updating the system #####"

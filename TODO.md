@@ -1,12 +1,12 @@
 # TODO
-- Configure Rofi
-- Add fonts
+- Automate EWW installation
 - Configure function keys
 - Add widgets (poweroff/network/brightness/sound)
 - Fix install_dotfiles sudo issue (it installs dotfiles for root if you run install.sh with sudo)
 - Configure Polybar
 - Rise Qtile
 - Polish boot splash screens
+- Fix black corners Rofi
 - Theming (Terminal, GTK, QT)
 - Add animations
 - Add sshfs support
